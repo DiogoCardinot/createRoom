@@ -1,0 +1,68 @@
+.modal-wrapper.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+
+  background: rgba(4, 9, 17, 0.8); /*rgb e o a serve como opaciidade */
+
+  visibility: hidden;
+  opacity: 0;
+  /* visibility e opacity tem a mesma função, utiliza-se os 2 pra casa algum navegador não aceite 1 deles.*/
+  /* display: none; faz o elemento deixar de existir  */
+}
+.modal-wrapper .modal {
+  width: min(
+    59rem,
+    90%
+  ); /* quando é menor de 59rem, a caixa se mantem com 90%  da width, com isso, nunca vai ser maior que a tela*/
+  background: var(--white);
+  margin: auto; /*funciona pois o pai é flex */
+
+  border-radius: 0.8rem;
+
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+
+  padding: 6.4rem;
+}
+.modal-wrapper .modal h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--black);
+}
+.modal-wrapper .modal p {
+  margin-bottom: 2.4rem;
+  color: var(--grey-dark);
+}
+
+.modal-wrapper .modal input {
+  margin-bottom: 4rem;
+  padding: 1.3rem 1.6rem;
+  border: 0.2rem solid var(--blue);
+  outline: none;
+  width: min(30.2rem, 70%);
+}
+
+.modal-wrapper .modal .buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-wrapper .modal .buttons > .button {
+  margin-right: 0.8rem;
+}
+
+.modal-wrapper .modal .buttons > button,
+.modal-wrapper .modal .buttons > .button {
+  padding: 1.3rem 3.2rem; /*altura largura */
+}

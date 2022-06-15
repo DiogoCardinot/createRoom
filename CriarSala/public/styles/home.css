@@ -1,0 +1,93 @@
+.content {
+  display: grid;
+  grid-template-columns: 60% 40% /*20%*/; /* tamanho das colunas. Caso queira criar mais só colocar do lado(total=100%)*/
+  grid-template-rows: 11.4rem 1fr /*2fr*/; /* 114px/10px */ /* 1fr= o resto dos 114px se tornam 1fr*/
+  /* 2fr, ia dividir o espaço restante em 3 frações, uma no meio de tudo e duas com a metade do tamanho da metade*/
+  grid-template-areas:
+    "header header"
+    "left right";
+  /* o header ocupa a área de cima toda e a área de baixo é separada em esquerda e direita*/
+}
+header {
+  grid-area: header;
+}
+
+#bg {
+  grid-area: left;
+  background: url("../images/home-bg-img.svg") no-repeat top/contain;
+  /* no-repeat=não colocar várias imagens*/
+  /*top/contain = pra img ficar no topo e o contain faz que ela se encaixe no tamanho que a div está */
+  background-position-x: -7rem; /* background é bom pois n gera barra de rolagem */
+}
+main {
+  grid-area: right;
+  display: flex;
+  align-items: center;
+  margin-top: -12rem;
+}
+main .container {
+  width: min(36.3rem, 100%);
+  /*min()=sempre pega o mínimo, o elemento pode ter 100%, mas ele dá preferência ao min */
+}
+main h2 {
+  font-family: "Poppins", sans-serif;
+  color: var(--black);
+  font-size: clamp(20px, 5vw, 2.8rem);
+  margin-bottom: 2.4rem;
+}
+
+input {
+  border: 0.2rem solid var(--grey-blue);
+  padding: 0 1.6rem;
+  outline: none;
+}
+input,
+button,
+.button {
+  width: 100%;
+  margin-bottom: 1.8rem;
+}
+
+/* SEPARATOR */
+.separator {
+  display: flex;
+  align-items: center;
+  margin: 4rem 0; /* margin: cima/baixo esquerda/direita*/
+}
+
+.separator div:nth-child(2) /*modifica o "ou" */ {
+  color: var(--grey-blue);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400; /* peso da fonte */
+  padding: 0 1.35rem;
+  line-height: 0;
+}
+
+.separator div:nth-child(1), /* div:nth-child(div que voce quer aplicar esse css)*/ 
+.separator div:nth-child(3) {
+  /* FAZ AS LINHAS EM VOLTA DO "ou"*/
+  background: var(--grey-blue);
+  width: 100%;
+  height: 1px;
+}
+/* CREATE BALLS */
+
+.ball {
+  width: 21.2rem;
+  height: 21.2rem;
+  background: var(--blue);
+  clip-path: circle();
+  opacity: 0.1;
+
+  position: fixed;
+}
+.ball.top {
+  top: -46rem;
+  width: 63.3rem;
+  height: 63.3rem;
+  right: -35rem;
+}
+.ball.bottom {
+  bottom: -15rem;
+  right: 5.6rem;
+}

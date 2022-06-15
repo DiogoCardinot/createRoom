@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+html {
+  --black: #0d114f;
+  --white: #fafafa;
+  --red: #e83f5b;
+  --light-blue: #e0ecff;
+  --blue: #3485ff;
+  --background: #fbfcff;
+  --overlay: #040911;
+  --icons-details: #a5b0c1;
+
+  --grey-dark: #4d5e77;
+  --grey-blue: #a1b2cd;
+  --grey-medium: #eaecf2;
+  --grey-light: #e5eaf1;
+
+  /* 1rem=16px */
+  font-size: 62.5%; /*62.5%=10px */
+}
+body {
+  display: flex;
+  height: 100vh; /* vh=view height(100vh pega a altura total da tela)*/
+  /*width: 100vw; vw=view width(100vw pega a largura total da tela)*/
+  background: var(--background);
+}
+body,
+input,
+button,
+textarea {
+  /* clamp= intervalo de tamanho(menor tamanho=14px, padrao da letra=1.6rem(16px), tela muito grande(maximo 2vw)) */
+  font-size: clamp(14px, 1.6rem, 2vw);
+  font-family: "Open Sans", sans-serif;
+  /*font-family: "Poppins", sans-serif;*/
+}
+.content {
+  width: 100%;
+  margin: 0 auto;
+}
+/*sr-only fez com que o label sumisse, mas ainda seja lido pelos métodos de acessibilidade */
+.sr-only {
+  /* display: none; não é bom pois o elemento deixa de existir, e essa não é a inteção */
+  position: absolute; /* não respeita a posição de outros elementos, fica por cima de tudo */
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden; /* para nã oter barra de rolagem */
+  clip-path: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+input,
+button,
+.button {
+  border-radius: 0.8rem;
+  height: 5rem;
+}
+
+button,
+.button {
+  font-family: "Poppins";
+  font-weight: 500;
+  line-height: 0; /*line-height= espaçamento entre as linhas do texto */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--blue);
+  color: var(--white);
+
+  transition: filter 0.2s; /*  faz mudar a cor do filter levemente(não é insta mudança)*/
+
+  cursor: pointer; /*faz ficar com a mão qnd passa em cima */
+}
+button:hover,
+.button:hover {
+  filter: brightness(
+    1.2
+  ); /*quando passa o mouse em cima do botão ele muda a cor suavemente */
+}
+
+button > img,
+.button > img {
+  margin-right: 1rem;
+  width: 2rem;
+}
+button.outlined,
+.button.outlined {
+  background: var(--white);
+  color: var(--blue);
+  border: 0.2rem solid var(--blue);
+}
+button.red,
+.button.red {
+  background: var(--red);
+  color: var(--white);
+}
+button.grey,
+.button.grey {
+  background: var(--grey-light);
+  color: var(--grey-dark);
+}
+
+/* HEADER */
+.content header {
+  width: 80%;
+  margin: 3.5rem auto;
+}
+.content header image {
+  width: 16.7rem;
+}
